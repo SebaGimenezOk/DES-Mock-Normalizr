@@ -1,8 +1,8 @@
-import app from './app.js';
+require('dotenv').config();
+const app = require('./app');
 
+const PORT = process.env.PORT || 3001
 
-const PORT= process.env.PORT || 4001
+const server = app.listen(PORT, () => console.log(`Server up and running o port ${PORT}`));
 
-app.listen(PORT, ()=> console.info(`Server Up and running on port ${PORT}`));
-
-
+server.on('error', error => console.error(error));
